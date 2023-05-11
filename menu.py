@@ -1,7 +1,7 @@
 from os import system
 from ejercicios_listas import *
 from ejercicio_batalla import *
-from escribir_leer_csv import *
+from leer_csv import *
 from escribir_leer_json import *
 
 menu =[
