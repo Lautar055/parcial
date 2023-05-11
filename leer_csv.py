@@ -1,4 +1,12 @@
 def obtener_lista_csv(nombre_archivo):
+    '''
+    se encarga de la lectura del archivo de formato csv y crear una lista de diccionarios
+
+    parametros:
+    nombre_archivo: El nombre del archivo csv
+
+    retorno: retorna la lista de diccionarios creada a partir del archivo
+    '''
     separador = ","
     with open(nombre_archivo, encoding="utf-8") as archivo:
         dbz_lista_pj = []

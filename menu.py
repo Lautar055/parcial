@@ -15,10 +15,21 @@ menu =[
 ]
 
 def mostrar_menu(lista:list):
+    '''
+    muestra el menu
+
+    parametro:
+    lista: la lista del menu
+    '''
     for opcion in lista:
         print(opcion)
 
 def validar_respuesta():
+    '''
+    pide y valida la respuesta
+
+    retorno: retorna la respuesta o un -1 en caso de que no sea un numero
+    '''
     respuesta = input("ingrese una opcion ")
     if validar_entero(respuesta):
         respuesta = int(respuesta)
@@ -28,12 +39,24 @@ def validar_respuesta():
         return respuesta
 
 def validar_entero(X:str):
+    '''
+    evalua que la respuesta sea un numero
+
+    parametros:
+    X: el valor a evaluar
+
+    retorna: verdadero o falso dependiendo de si es o no un numero
+    '''
     if X.isdigit():
         return True
     else:
         return False
 
 def sistema_principal():
+    '''
+    se encarga de la logica del menu, de recibir la respuesta para diriguir al usuario a la funcion deseada
+        y de la gestion de las distintas funcoines de los demas archivos 
+    '''
     titulo_archivo = "No hay archivo todavia, debes usar la funcion 5 antes"
     lista = obtener_lista_csv("C://Users//User//OneDrive//Escritorio//Cosas UTN//1er Cuatri//Python//Parcial//DBZ.csv")
     while True:
