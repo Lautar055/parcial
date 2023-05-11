@@ -1,5 +1,6 @@
 import json
 from ejercicio_batalla import join
+from verificaciones import verificar_ingreso_y_texto
 
 def crear_json(lista, nombre_archivo):
     with open(nombre_archivo, mode='w', encoding="utf-8") as archivo:
@@ -19,8 +20,10 @@ def main_escribir_json(lista):
 def pedir_valores():
     union_valores = []
     valor_raza = input("Ingrese una raza: ")
+    valor_raza = verificar_ingreso_y_texto(valor_raza)
     union_valores.append(valor_raza)
     valor_habilidad = input("Ingrese la habilidad: ")
+    valor_habilidad = verificar_ingreso_y_texto(valor_habilidad)
     union_valores.append(valor_habilidad)
     return union_valores
 

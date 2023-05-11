@@ -8,7 +8,7 @@ def verificar_ingreso_y_numero(valor_a_verificar):
             break
     return valor_a_verificar
 
-def verificar_ingreso_y_texto():
+def verificar_ingreso_y_texto(valor_a_verificar):
     while True:
         if not valor_a_verificar:
             valor_a_verificar = input("No se ingresó ningún valor. Ingrese un valor: ")
@@ -18,7 +18,7 @@ def verificar_ingreso_y_texto():
             break
     return valor_a_verificar
 
-def verificar_existencia():
+def verificar_existencia(valor_a_verificar):
     while True:
         if not valor_a_verificar:
             valor_a_verificar = input("No se ingresó ningún valor. Ingrese un valor: ")

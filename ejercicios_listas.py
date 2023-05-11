@@ -1,3 +1,5 @@
+from verificaciones import verificar_ingreso_y_texto
+
 def lista_contador(lista:list, clave:str):
     contador = 0
     lista_filtrada = cantidad_tipos(lista, clave)
@@ -37,6 +39,7 @@ def personajes_por_tipo(lista:list, clave:str):
 
 def personajes_por_habilidad(lista):
     habilidad = input("Ingresa una habilidad: ")
+    habilidad = verificar_ingreso_y_texto(habilidad)
     for heroe in lista:
         if (heroe['habilidades'].lower()).find(habilidad.lower()) != -1:
             promedio = sacar_promedio(heroe['poder_pelea'], heroe['poder_ataque'])

@@ -1,10 +1,11 @@
 import random
 import datetime
-from verificaciones import verificar_existencia
+from verificaciones import verificar_ingreso_y_numero
 
 def logica_batalla(lista):
-    usuario = input("Ingresa la ID del personaje que quieras elegir (del 1 al 35) ")
-    usuario = verificar_existencia(usuario)
+    usuario = int(input("Ingresa la ID del personaje que quieras elegir (del 1 al 35) "))
+    usuario = verificar_ingreso_y_numero(usuario)
+    usuario = str(usuario)
     maquina = numero_aleatorio()
     lista_usuario = buscar_guardar_por_id(lista, 'id', 'nombre', 'poder_ataque', usuario)
     lista_maquina = buscar_guardar_por_id(lista, 'id', 'nombre', 'poder_ataque', maquina)
