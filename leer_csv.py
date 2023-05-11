@@ -1,6 +1,6 @@
 def obtener_lista_csv(nombre_archivo):
     separador = ","
-    with open(nombre_archivo, encoding="utf-8") as archivo:#
+    with open(nombre_archivo, encoding="utf-8") as archivo:
         dbz_lista_pj = []
         for linea in archivo:
             linea = linea.rstrip("\n")

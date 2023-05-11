@@ -4,7 +4,7 @@ from ejercicio_batalla import join
 def crear_json(lista, nombre_archivo):
     with open(nombre_archivo, mode='w', encoding="utf-8") as archivo:
         for dato in lista:
-            json.dump(dato, archivo)
+            json.dump(dato + "\n", archivo)
     archivo.close()
 
 def main_escribir_json(lista):
@@ -49,4 +49,22 @@ def ajustar(valor, valor_eliminar):
     return conjunto
 
 def leer_json(titulo):
-    pass
+    separador = " - "
+    with open(titulo, mode='r', encoding="utf-8") as archivo:
+        dvz_lista = []
+        for linea in archivo:
+            linea = linea.rstrip("\n")
+            columna = linea.split(separador)
+            nombre = columna[0]
+            poder = columna[1]
+            habilidades = columna[2]
+            dvz_lista.append({
+                'nombre' : nombre,
+                'poder' : poder,
+                'habilidades' : habilidades
+            })
+
+def imprimir_cada_elemento_lista(lista):
+    for heroe in lista:
+        print(f"Nombre: {heroe['nombre']}\n")
+        print(f"El poder de pelea es: {heroe['poder']} y las habilidades que tiene son: {heroe['habilidades']} sin contar la ingresada para la busqueda.")
