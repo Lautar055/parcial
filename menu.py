@@ -34,7 +34,8 @@ def validar_entero(X:str):
         return False
 
 def sistema_principal():
-    lista = obtener_lista_csv("Parcial\DBZ.csv")
+    titulo_archivo = "No hay archivo todavia, debes usar la funcion 5 antes"
+    lista = obtener_lista_csv("C://Users//User//OneDrive//Escritorio//Cosas UTN//1er Cuatri//Python//Parcial//DBZ.csv")
     while True:
         print(f"\n")
         mostrar_menu(menu)
@@ -53,9 +54,12 @@ def sistema_principal():
             case 4:
                 batalla_principal(lista)
             case 5:
-                main_escribir_json(lista)
+                titulo_archivo = main_escribir_json(lista)
             case 6:
-                pass
+                if titulo_archivo == "No hay archivo todavia, debes usar la funcion 5 antes":
+                    print(titulo_archivo)
+                else:
+                    leer_json(titulo_archivo)
             case 7:
                 system("cls")
                 break

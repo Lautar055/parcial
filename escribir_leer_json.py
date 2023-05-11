@@ -10,9 +10,11 @@ def crear_json(lista, nombre_archivo):
 def main_escribir_json(lista):
     valores = pedir_valores()
     titulo_archivo = join(valores, "_")
+    titulo_archivo = titulo_archivo.replace(' ', '')
     titulo_archivo = titulo_archivo + ".json"
-    conjunto = buscar_datos(valores[0], valores[1], lista)
+    conjunto = guardar_buscar_en_lista(lista, valores)
     crear_json(conjunto, titulo_archivo)
+    return titulo_archivo
 
 def pedir_valores():
     union_valores = []
@@ -22,27 +24,29 @@ def pedir_valores():
     union_valores.append(valor_habilidad)
     return union_valores
 
-def buscar_datos(primer_valor, segundo_valor, lista):
-    lista_guardados = []
-    for heroe in lista:
-        lista_temporal = []
-        if (heroe['raza'].lower()).find(primer_valor.lower()) != -1 and (heroe['habilidades'].lower()).find(segundo_valor.lower()) != -1:
+def guardar_buscar_en_lista(lista_original, lista_valores):
+    lista_retorno = []
+    for heroe in lista_original:
+        if heroe['raza'].lower() == lista_valores[0].lower() and heroe['habilidades'].find(lista_valores[1]) != -1:
             nombre = heroe['nombre']
-            habilidades = heroe['habilidades'].lower()
-            poder = heroe['poder_pelea']
-        lista_temporal.append(nombre)
-        habilidades = ajustar(habilidades, segundo_valor)
-        lista_temporal.append(habilidades)
-        lista_temporal.append(poder)
-        final = join(lista_temporal, " - ")
-        lista_guardados.append(final)
-    return lista_guardados
+            habilidades = heroe['habilidades']
+            txt_habilidad = ajustar(habilidades, lista_valores[1])
+            poder = heroe['poder_ataque']
+            str_poder = str(poder)
+            lista_temporal = [nombre, str_poder, txt_habilidad]
+            final = " - ".join(lista_temporal)
+            lista_retorno.append(final)
+    return lista_retorno
 
 def ajustar(valor, valor_eliminar):
     conjunto = valor.split("|$%")
-    conjunto = conjunto.remove(valor_eliminar)
-    conjunto.join(" + ")
+    if valor_eliminar in conjunto:
+        conjunto.remove(valor_eliminar)
+    if len(conjunto) > 1:
+        conjunto.join(" + ")
+    else:
+        conjunto = conjunto[0]
     return conjunto
 
-def leer_json():
+def leer_json(titulo):
     pass
