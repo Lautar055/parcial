@@ -3,6 +3,7 @@ from ejercicios_listas import *
 from ejercicio_batalla import *
 from leer_csv import *
 from escribir_leer_json import *
+from funciones_agregadas import *
 
 menu =[
     "1_ Listar cantidad por raza",
@@ -11,7 +12,8 @@ menu =[
     "4_ Jugar batalla",
     "5_ Guardar en archivo Json",
     "6_ Leer archivo Json",
-    "7_ Salir",
+    "7_ aumentar poder saiyans y guardar en csv",
+    "8_ Salir",
 ]
 
 def mostrar_menu(lista:list):
@@ -84,6 +86,8 @@ def sistema_principal():
                 else:
                     leer_json(titulo_archivo)
             case 7:
+                main_aumento(lista)
+            case 8:
                 system("cls")
                 break
             case _:
